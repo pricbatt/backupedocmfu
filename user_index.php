@@ -71,7 +71,8 @@ header('Content-Type: text/html; charset=utf-8');
                         <th style="text-align: center;">รายละเอียด
                             <!-- <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> เพิ่มข้อมูลใหม่</button> -->
                         </th>
-                        <th>View</th>
+                        <th style="text-align: center;">ตราประทับ</th>
+                    
                         <th>ลบ</th>
                     </tr>
                 </thead>
@@ -116,7 +117,9 @@ header('Content-Type: text/html; charset=utf-8');
                                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> ลบข้อมูล
                             </a> -->
                         </td>
-                        <td><a href="preview.php?id=<?=$row["Id"]?>" target="_blank" class="btn btn-primary">PDF</a></td>
+                        
+                        <td><a href="preview.php?id=<?=$row["Id"]?>" target="_blank" class="btn btn-primary">ตราประทับ</a></td>
+                     
                         <td><a href="delete.php?id=<?=$row["Id"]?>" onClick="return confirm('คุณต้องการที่จะลบข้อมูลนี้หรือไม่ ?');" class='btn btn-danger' role='button'">ลบ</a></td>
                     </tr>
                     <?php

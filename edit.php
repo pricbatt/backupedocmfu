@@ -64,12 +64,12 @@
         </div>
   
         <div class="form-group">
-            <label>บันทึกข้อความ</label>
+            <label>เอกสารแนบ</label>
             <input value="<?=$row["Filename"]?>" type="hidden" class="form-control" name="Filename" id="Filename" placeholder="Filename">
             <a href="documents/<?php echo $row["Filename"]; ?>" target="_blank"><?php echo $row["Filename"];?></a>
         </div>
         <div class="form-group">
-            <label>เอกสารแนบ</label>
+            <label>หน้าที่ประทับตรา</label>
             <input value="<?=$row["file"]?>" type="hidden" class="form-control" name="file" id="file" placeholder="file">
             <a href="doc/<?php echo $row["file"]; ?>" target="_blank"><?php echo $row["file"];?></a>
         </div>

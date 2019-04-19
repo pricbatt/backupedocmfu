@@ -61,9 +61,15 @@
         </div>
   
         <div class="form-group">
-            <label>เอกสาร : </label>
-            <a href="preview.php?id=<?=$row["Id"]?>" target="_blank">รายละเอียด</a>
+            <label>หน้าที่ประทับตรา : </label>
+            <a href="preview.php?id=<?=$row["Id"]?>" target="_blank">หน้าที่ประทับตรา</a>
         </div>
+
+        <div class="form-group">
+            <label>เอกสารแนบ : </label>
+            <a href="documents/<?php echo $row["Filename"]; ?>" target="_blank">รายละเอียด</a>
+        </div>
+
         <!-- <div class="checkbox">
             <label>
                 <input value="1" <?php if($row["Approved"]==1) { echo "checked='checked'"; } ?> type="checkbox" name="Approved" id="Approved"> อนุมัติ

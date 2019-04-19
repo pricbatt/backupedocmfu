@@ -1,3 +1,4 @@
+
 <?php
 ini_set('display_errors', 'On');
 require 'connection_database.php';
@@ -36,7 +37,7 @@ $row = mysqli_fetch_assoc($result);
   position: relative;
   text-align: center;
   color: #000;
-  background: url(documents/<?=$row["Filename"]?>) no-repeat;
+  background: url(doc/<?=$row["file"]?>) no-repeat;
 background-size: 100%;
 height:100%;
 padding-top:0px;

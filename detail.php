@@ -67,12 +67,12 @@
            
         </div>
         <div class="form-group">
-            <label>บันทึกข้อความ : </label>           
-            <a href="preview.php?id=<?=$row["Id"]?>" target="_blank" >รายละเอียด</a>
+            <label>หน้าที่ประทับตรา : </label>           
+            <a href="preview.php?id=<?=$row["Id"]?>" target="_blank" >หน้าที่ประทับตรา</a>
         </div>
         <div class="form-group">
             <label>เอกสารแนบ : </label>
-            <a href="doc/<?php echo $row["file"]; ?>" target="_blank" class="btn btn-primary">รายละเอียด</a>
+            <a href="documents/<?php echo $row["Filename"]; ?>" target="_blank">รายละเอียด</a>
         </div>
         <!-- <div class="checkbox">
             <label>

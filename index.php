@@ -28,6 +28,7 @@ header('Content-Type: text/html; charset=utf-8');
   $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
   
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,15 +45,22 @@ header('Content-Type: text/html; charset=utf-8');
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>    
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>  
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>  
+
+    <style>
+    a {
+    /* color: white; */
+    text-decoration: none;
+}
+    </style>
 </head>
 <body>
 <div class="row">
 <div class="container">
         <h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> เอกสารรอการจ่ายงานนะจ๊ะ</h1><?php echo $objResult["name"];?> : <a href="logout.php"> Logout</a><hr>
-        <div><a href="add.php" class="btn btn-danger"><span class="glyphicon glyphicon-save-file"></span>
+        <div><a href="new.php" class="btn btn-danger"><span class="glyphicon glyphicon-save-file"></span>
         เพิ่มข้อมูลใหม่</a>
-        <a href="convert/index.php" class="btn btn-success"><span class="glyphicon glyphicon-save-file"></span>
-        แปลงไฟล์</a>
+        <!-- <a href="convert/index.php" class="btn btn-success"><span class="glyphicon glyphicon-save-file"></span>
+        แปลงไฟล์</a> -->
         </div>
         
         <br>
@@ -76,8 +84,8 @@ header('Content-Type: text/html; charset=utf-8');
                             <!-- <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> เพิ่มข้อมูลใหม่</button> -->
                         </th>
                         <th>รายละเอียด</th>
-                        <th>เกษียน</th>
-                        <th>เอกสารแนบ</th>
+                        <th style="text-align: center;">ตราประทับ</th>
+                        <!-- <th>เอกสารแนบ</th> -->
                         <th>ลบ</th>
                     </tr>
                 </thead>
@@ -100,16 +108,16 @@ header('Content-Type: text/html; charset=utf-8');
 
                                 elseif($row["Approved"] == '1'){
 
-                                    echo "<td><center><a>เกษียนเอกสารแล้ว</a></center></td>";}
+                                    echo "<td><center>เกษียนเอกสารแล้ว</center></td>";}
                                 elseif($row["Approved"] == '2'){
 
-                                    echo "<td><center><a>ไม่อนุมัติ</a></center></td>";}
+                                    echo "<td><center>ไม่อนุมัติ</center></td>";}
                                 elseif($row["Approved"] == '3'){
 
-                                    echo "<td><center><a>รับทราบ</a></center></td>";}
+                                    echo "<td><center>รับทราบ</center></td>";}
                                 else{
 
-                                        echo "<td><center><a>ไม่สามารถดำเนินการได้</a></center></td>";
+                                        echo "<td><center>ไม่สามารถดำเนินการได้</center></td>";
            
 }
                      ?>
@@ -128,13 +136,13 @@ header('Content-Type: text/html; charset=utf-8');
                             </a>
                            
                         </td>
-                        <td><a href="preview.php?id=<?=$row["Id"]?>" target="_blank" class="btn btn-primary">เกษียน</a></td>
+                        <td><a href="preview.php?id=<?=$row["Id"]?>" target="_blank" class="btn btn-primary">ตราประทับ</a></td>
                     
-                        <td  style="text-align: center;">
+                        <!-- <td  style="text-align: center;">
                         <a href="doc/<?php echo $row["file"]; ?>" target="_blank" class="btn btn-primary">
                         <span class="glyphicon glyphicon-book" aria-hidden="true"></span> เอกสารแนบ
                         </a>
-                        </td>
+                        </td> -->
                         
                         <td><a href="delete.php?id=<?=$row["Id"]?>" onClick="return confirm('คุณต้องการที่จะลบข้อมูลนี้หรือไม่ ?');" class='btn btn-danger' role='button'">ลบ</a></td>
                     </tr>

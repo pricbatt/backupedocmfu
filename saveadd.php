@@ -35,27 +35,37 @@ $result = mysqli_fetch_assoc($query);
 
 
 ?>
+
+
 <?php
-header('Content-Type: application/json');
-  move_uploaded_file($_FILES["filUpload"]["tmp_name"],"documents/".$_FILES["filUpload"]["name"]);
-  move_uploaded_file($_FILES["file"]["tmp_name"],"doc/".$_FILES["file"]["name"]);
+$folder = $_POST["folder"];
+$file= $_POST["file"];
+copy($folder.$file, "doc/".$file);
 require 'connection_database.php';
-        $name = $_POST["Firstname"];
-        $id = $_POST["id"];
-        $docname = $_POST["docname"];
-        $topic = $_POST["topic"];     
-        $type = $_POST["type"]; 
-        $pdf=trim($_FILES["filUpload"]["name"]);
-        $file=trim($_FILES["file"]["name"]);
-        $created = date('Y-m-d H:i:s');
-        $stamp = $_POST["stamp"];
-$sql = "INSERT INTO form (Firstname,Filename,file,docname,topic,created,uid,type,stamp) VALUES ";
-$sql .= "('{$name}','{$pdf}','{$file}','{$docname}','{$topic}','{$created}','{$id}','{$type}','{$stamp}')";
+
+          $name = $_POST["Firstname"];
+          $id = $_POST["id"];
+          $docname = $_POST["docname"];
+          $topic = $_POST["topic"];     
+          $type = $_POST["type"]; 
+          $lastid = $_POST["lastid"]; 
+          // $pdf=trim($_FILES["filUpload"]["name"]);
+          // $file=trim($_FILES["file"]["name"]);
+          $file=$_POST["file"];
+          $created = date('Y-m-d H:i:s');
+          $stamp = $_POST["stamp"];
+
+//$sql = "DELETE FROM questions where id=$id;";
+//$sql = "DELETE FROM answers where question_id=$id;";
+$sql = "UPDATE form SET Firstname='$name',file='$file',docname='$docname',topic='$topic',created='$created',uid='$id',type='$type',stamp='$stamp' WHERE Id = $lastid ";
+
+$result=mysqli_query($conn,$sql);
 
 $query = mysqli_query($conn,$sql);
-
-
-header('Location: index.php');
-exit;
-
-mysqli_close($conn);
+if ($query == TRUE) {
+echo "<script type='text/javascript'>";
+	echo "alert('Succesfuly');";
+	echo "window.location = 'index.php'; ";
+  echo "</script>";
+  
+}mysqli_close($conn);
